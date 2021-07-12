@@ -121,7 +121,8 @@ export const actions: ActionTree<State, RootState> = {
         updatedPrivate!.email = changes['email'].value as string
       }
       if (changes['birthday']) {
-        updatedPrivate!.birthday = changes['birthday'].value as number
+        changes['birthday'].value = new Date(changes['birthday'].value as string).getTime()
+        updatedPrivate!.birthday = changes['birthday'].value
       }
 
       delete changes['email']
@@ -157,15 +158,6 @@ export const actions: ActionTree<State, RootState> = {
         updatedScholar = await Scholar.fetch(updatedScholar.recordName!)
       }
       commit('scholars/insertScholar', updatedScholar, { root: true })
-    }
-
-    if (updatedPrivate) {
-      let updatedScholar = Scholar.clone(scholar)
-      updatedScholar.scholarPrivate = {
-        recordName: updatedPrivate.recordName!,
-        action: CloudKit.ReferenceAction.DELETE_SELF
-      }
-      await updatedScholar.save()
     }
 
     // when the private changed or we fetched a new scholar because the picture changed, we have to set the loadedPrivate again
