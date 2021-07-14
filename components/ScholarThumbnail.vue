@@ -50,7 +50,7 @@ export default class ScholarThumbnail extends Vue {
       padding: 10% 20% 30%
 
     $gradient-start: rgba(246, 247, 248, 0)
-    $gradient-mid: $sch-gray2
+    $gradient-mid: $sch-accent2
     &[lazy="loading"] + .image-loading
       display: block
       position: absolute
@@ -77,8 +77,8 @@ export default class ScholarThumbnail extends Vue {
     border-bottom-left-radius: $border-radius-large
     border-bottom-right-radius: $border-radius-large
     z-index: 500
-    background-color: transparentize($sch-purple, 0.25)
-    color: $white
+    background-color: transparentizeColor('sch-purple', 0.25)
+    color: $background-color-2
     font-size: 1.1em
     font-weight: 500
     text-align: center

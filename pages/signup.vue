@@ -2,7 +2,7 @@
 .container-outer
   .container-fluid
     base-section
-      h2.color-blue1 Welcome to WWDC#[span Scholars]
+      h2.color-blue Welcome to WWDC#[span Scholars]
       h3 Use your iCloud account to register or sign in
       p.
         If you are creating an account for the first time, or adding a new
@@ -70,7 +70,7 @@ export default class PageSignup extends Vue {
     margin: 0 auto 20px
 
     a
-      color: $sch-blue1
+      color: $sch-blue
 
   .btn-sign-in
     display: block

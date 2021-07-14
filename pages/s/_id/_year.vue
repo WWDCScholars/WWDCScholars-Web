@@ -135,7 +135,7 @@ export default class ScholarProfileSubmission extends Vue {
 .challenge-description
   font-size: 0.85em
   font-style: italic
-  color: $apl-black3
+  color: $sch-label-2
 
 .description
   font-size: 0.9em
@@ -189,7 +189,7 @@ $swiper-arrow-height: 52px
     transition: opacity 100ms linear
 
     .swiper-pagination-bullet
-      background-color: $white
+      background-color: $background-color-2
       box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.5)
       opacity: 1
 

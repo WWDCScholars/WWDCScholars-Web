@@ -65,7 +65,7 @@ export default class PageImprint extends Vue {
   margin: 0 auto
 
   h1, h2, h3
-    color: $sch-blue1
+    color: $sch-blue
 
   h2
     text-align: left
@@ -77,5 +77,5 @@ export default class PageImprint extends Vue {
     font-weight: 500
 
   a
-    color: $sch-blue1
+    color: $sch-blue
 </style>

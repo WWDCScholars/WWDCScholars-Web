@@ -2,7 +2,7 @@
 .container-fluid
   .section
     template(v-if="error.statusCode === 404")
-      h2.color-blue1 You seem to be lost!
+      h2.color-blue You seem to be lost!
       p(v-if="!error.message") The link you clicked may be broken or no longer exists.
       p(v-else) {{ error.message }}
       p: BaseButton(@click="goBack").back-button ← Go Back

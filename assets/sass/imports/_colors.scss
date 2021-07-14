@@ -1,0 +1,147 @@
+$light-theme: "light";
+$dark-theme: "dark";
+
+$themes: (
+  $light-theme: (
+    background-color: rgb(245, 245, 245),
+    background-color-2: rgb(255, 255, 255),
+    shadow: rgba(0, 0, 0, 0.16),
+    form-border-color: rgb(151, 151, 151),
+
+    sch-label: #000000,
+    sch-label-2: #3c3c4399,
+    sch-label-3: #3c3c434d,
+
+    sch-purple: rgb(65, 53, 153),
+    sch-purple-2: rgb(106, 101, 164),
+    sch-purple-3: rgb(141, 139, 193),
+    sch-red: #ef5349,
+    sch-red-2: #e64d43,
+    sch-blue: #3eb5d9,
+    sch-blue-2: #395d6f,
+    sch-green: #3ab298,
+    sch-orange: #f99532,
+
+    sch-accent: rgb(108, 108, 108),
+    sch-accent0: rgb(127, 127, 127),
+    sch-accent1: rgb(205, 205, 205),
+    sch-accent2: rgb(228, 228, 228),
+    sch-accent3: rgb(233, 233, 233),
+    sch-accent4: rgb(252, 252, 252),
+  ),
+  $dark-theme: (
+    background-color: rgb(20, 20, 20),
+    background-color-2: rgb(0, 0, 0),
+    shadow: rgba(255, 255, 255, 0.26),
+    form-border-color: rgb(104, 104, 104),
+
+    sch-label: #ffffffff,
+    sch-label-2: #ebebf599,
+    sch-label-3: #ebebf54d,
+
+    sch-purple: rgb(165, 153, 255),
+    sch-purple-2: rgb(153, 139, 253),
+    sch-purple-3: rgb(142, 122, 255),
+    sch-red: #ff6a6a,
+    sch-red-2: #ff4f42,
+    sch-blue: #7db6d3,
+    sch-blue-2: #3bc3ec,
+    sch-green: #3eccad,
+    sch-orange: #ffa952,
+
+    sch-accent: rgb(147, 147, 147),
+    sch-accent0: rgb(127, 127, 127),
+    sch-accent1: rgb(50, 50, 50),
+    sch-accent2: rgb(37, 37, 37),
+    sch-accent3: rgb(27, 27, 27),
+    sch-accent4: rgb(10, 10, 10),
+  ),
+);
+
+//converting scss variable into css variable
+:root {
+  --theme: $light-theme;
+  $light: map-get($themes, $light-theme);
+  @each $name, $color in $light {
+    --color-#{$name}: #{$color};
+    --color-#{$name}-r: #{red($color)};
+    --color-#{$name}-g: #{green($color)};
+    --color-#{$name}-b: #{blue($color)};
+    --color-#{$name}-a: #{alpha($color)};
+    --color-#{$name}-h: #{hue($color)};
+    --color-#{$name}-s: #{saturation($color)};
+    --color-#{$name}-l: #{lightness($color)};
+  }
+}
+
+.dark-mode {
+  --theme: $dark-theme;
+  $dark: map-get($themes, $dark-theme);
+  @each $name, $color in $dark {
+    --color-#{$name}: #{$color};
+    --color-#{$name}-r: #{red($color)};
+    --color-#{$name}-g: #{green($color)};
+    --color-#{$name}-b: #{blue($color)};
+    --color-#{$name}-a: #{alpha($color)};
+    --color-#{$name}-h: #{hue($color)};
+    --color-#{$name}-s: #{saturation($color)};
+    --color-#{$name}-l: #{lightness($color)};
+  }
+}
+
+//creating a function to get color instead of using css varible
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+//change brigthness / lightness of color *by* $amount (+ lighter, - darker)
+//$amount should be in percent 0% - 100%
+@function lightenColor($colorName, $amount) {
+  // use capitalized `Min` / `Max` to avoid SASS compiler error, CSS is canse-insensetive
+  @return hsl(
+    var(--color-#{$colorName}-h),
+    var(--color-#{$colorName}-s),
+    Max(0%, Min(100%, calc(var(--color-#{$colorName}-l) + #{$amount})))
+  );
+}
+
+//change transparancy of color *by* $amount (e.g. 0.1 *more* transparent)
+//$amount should be in decimal 0 - 1
+@function transparentizeColor($colorName, $amount) {
+  // use capitalized `Min` / `Max` to avoid SASS compiler error, CSS is canse-insensetive
+  @return rgba(
+    var(--color-#{$colorName}-r),
+    var(--color-#{$colorName}-g),
+    var(--color-#{$colorName}-b),
+    Max(0, Min(1, calc(var(--color-#{$colorName}-a) - #{$amount})))
+  );
+}
+
+$background-color-2: getColor("background-color-2");
+$background-color: getColor("background-color");
+$shadow: getColor("shadow");
+
+$sch-label: getColor("sch-label");
+$sch-label-2: getColor("sch-label-2");
+$sch-label-3: getColor("sch-label-3");
+
+$sch-purple: getColor("sch-purple");
+$sch-purple-2: getColor("sch-purple-2");
+$sch-purple-3: getColor("sch-purple-3");
+
+$sch-red: getColor("sch-red");
+$sch-red-2: getColor("sch-red-2");
+$sch-blue: getColor("sch-blue");
+$sch-blue-2: getColor("sch-blue-2");
+$sch-green: getColor("sch-green");
+$sch-orange: getColor("sch-orange");
+
+$sch-accent: getColor("sch-accent");
+$sch-accent0: getColor("sch-accent0");
+$sch-accent1: getColor("sch-accent1");
+$sch-accent2: getColor("sch-accent2");
+$sch-accent3: getColor("sch-accent3");
+$sch-accent4: getColor("sch-accent4");
+
+$form-placeholder-color: $sch-accent;
+$form-border-color: getColor("form-border-color");

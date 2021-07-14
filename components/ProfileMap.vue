@@ -3,6 +3,7 @@ MKMap(
   ref="map",
   :options="mapOptions",
   :region="region"
+  :colorScheme="this.$colorMode.value"
 ).profile-map
   MKMarkerAnnotation(
     v-if="coordinate",
@@ -32,7 +33,8 @@ export default class ProfileMap extends Vue {
     showsScale: 'hidden',
     showsMapTypeControl: false,
     showsUserLocationControl: false,
-    showsPointsOfInterest: false
+    showsPointsOfInterest: false,
+    colorScheme: this.$colorMode.value
   }
   annotationOptions: mapkit.MarkerAnnotationConstructorOptions = {
     enabled: false,

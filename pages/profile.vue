@@ -59,7 +59,7 @@ export default class PageProfile extends Vue {
   text-align: center
 
   a
-    color: $apl-black
+    color: $sch-label
 
 .loading-section
   padding: 40px 10px

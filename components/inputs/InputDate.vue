@@ -1,6 +1,7 @@
 <template lang="pug">
 .input-date(:class="{ 'input-has-value': inputHasValue }")
   label
+    //- NOTE: flat-pickr does not have a darkmode!
     flat-pickr(
       ref="fp",
       :config.once="config",
@@ -72,10 +73,10 @@ export default class InputDate extends Vue {
     width: 100%
     font-size: 1em
     padding: 20px 15px 5px 15px
-    background-color: $white
+    background-color: $background-color-2
     border: 1px solid $form-border-color
     border-radius: $border-radius
-    color: $apl-black
+    color: $sch-label
     transition: border-color 100ms linear, box-shadow 100ms linear
 
   .title
@@ -83,7 +84,7 @@ export default class InputDate extends Vue {
     top: 50%
     left: 15px
     transform: translateY(-50%)
-    color: $sch-gray1
+    color: $sch-accent
     pointer-events: none
     transition: all 100ms linear
 
@@ -93,7 +94,7 @@ export default class InputDate extends Vue {
 
   .optional
     position: absolute
-    color: $sch-gray1
+    color: $sch-accent
     top: 50%
     right: 15px
     transform: translateY(-50%)
@@ -106,11 +107,11 @@ export default class InputDate extends Vue {
   .input-date
     input
       &:hover, &:focus
-        border-color: $bg
+        border-color: getColot($bg)
       &:focus
-        box-shadow: 0 0 4px transparentize($bg, 0.6)
+        box-shadow: 0px 0px 4px transparentizeColor($bg, 0.6)
       &:focus + .title
-        color: $bg
+        color: getColor($bg)
 </style>
 
 <style lang="sass">
@@ -124,9 +125,9 @@ export default class InputDate extends Vue {
       height: calc(1em + 25px)
       border: 1px solid $form-border-color
       border-radius: $border-radius
-      color: $sch-gray
+      color: $sch-accent
       appearance: none
       &:focus
-        color: $bg
-        border: 1px solid $bg
+        color: getColor($bg)
+        border: 1px solid getColor($bg)
 </style>

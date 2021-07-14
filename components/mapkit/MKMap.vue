@@ -41,6 +41,9 @@ export default class MKMap extends Vue {
   @Prop({ default: undefined, type: String })
   tintColor?: string
 
+  @Prop({ default: undefined, type: String })
+  colorScheme?: string
+
   @Prop({ default: undefined, type: Object })
   center?: mapkit.Coordinate
 
@@ -132,6 +135,16 @@ export default class MKMap extends Vue {
   @Watch('tintColor')
   setTintColor(tintColor?: string) {
     if (tintColor && this.$map) this.$map.tintColor = tintColor
+  }
+
+  @Watch('colorScheme')
+  setColorScheme(colorScheme?: string) {
+    if (!colorScheme || !this.$map) return;
+    if (colorScheme === 'dark') {
+      this.$map.colorScheme = mapkit.Map.ColorSchemes.Dark
+    } else {
+      this.$map.colorScheme = mapkit.Map.ColorSchemes.Light
+    }
   }
 
   @Watch('center')

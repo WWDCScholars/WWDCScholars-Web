@@ -20,6 +20,9 @@
   @media (min-width: 1800px)
     @content
 
+@mixin system-dark-mode
+  @media (prefers-color-scheme: dark)
+    @content
 
 //== Border radius
 $border-radius: 6px !default

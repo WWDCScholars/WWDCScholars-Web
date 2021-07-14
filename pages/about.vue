@@ -28,7 +28,7 @@
 
       base-section
         .subsection
-          h4.color-red2 What is a WWDC Scholarship?
+          h4.color-red-2 What is a WWDC Scholarship?
           p.
             The #[a(href="https://developer.apple.com/wwdc/", target="_blank") Apple Worldwide Developers Conference (WWDC)]
             is a conference held annually in California by Apple Inc. The event gathers approximately 5000 developers in one place to learn about and discuss the latest software and technologies for Apple platform developers. Attendees can participate in hands-on labs with Apple engineers, and in-depth sessions covering a wide variety of topics.
@@ -36,13 +36,13 @@
             Every year, Apple rewards up to 350 talented students and STEM organization members with an opportunity to attend the conference as a scholarship winner. Individuals selected for a scholarship will receive a WWDC ticket, lodging for the conference, and one year of membership in the Apple Developer Program free of charge.
 
         .subsection
-          h4.color-red2 How can I apply?
+          h4.color-red-2 How can I apply?
           p.
             #[i Due to being held online, the WWDC Scholarship is called Swift Student Challenge in 2021. Applications are currently open. Don't miss any announcements by #[a(href="https://twitter.com/WWDCScholars", target="_blank") following us on Twitter (@WWDCScholars)].]
             The application for a WWDC scholarship consists of a combination of a Swift Playground to showcase your ingenuity and written responses to a few questions. You can #[a(href="https://developer.apple.com/wwdc21/swift-student-challenge/", target="_blank") find out more on the WWDC Website].
 
         .subsection
-          h4.color-red2 How do I join WWDCScholars?
+          h4.color-red-2 How do I join WWDCScholars?
           p.
             If you are a WWDC scholarship winner, you can #[a(href="https://join.wwdcscholars.com", target="_blank") sign up to create a profile on our website]. This is a great way to connect with fellow Scholars and help you to get the most out of the conference.
 
@@ -51,7 +51,7 @@
 
 
         .subsection
-          h4.color-red2 Is there anything I can help with?
+          h4.color-red-2 Is there anything I can help with?
           p.
             We are always on the lookout for creative individuals and like-minded developers from all around the world to help us build our platform for WWDC scholarship winners. Our current projects include a native iOS app written in Swift as well as two Vue.js web applications for signup and this website. Everything we develop is openly #[a(href="https://github.com/WWDCScholars", target="_blank") available on GitHub]. If you are interested in contributing to any of our projects, check out the open issues of the respective repository, or create a new one to suggest an improvement or request a feature.
 </template>
@@ -145,7 +145,8 @@ h3
     left: 4%
     font-size: 2.3em
     font-weight: 700
-    color: $white
+    //picture bg is static and needs bright contrast
+    color: white
 
     span
       font-weight: 500

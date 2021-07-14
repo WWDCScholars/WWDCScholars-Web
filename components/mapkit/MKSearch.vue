@@ -156,7 +156,7 @@ export default class MKSearch extends Vue {
     span
       display: block
       font-size: 0.7em
-      color: $sch-gray0
+      color: $sch-accent0
 
     &:hover, &.mk-result-selected
       background-color: lightgray

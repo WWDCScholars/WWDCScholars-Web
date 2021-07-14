@@ -30,7 +30,8 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
+      "@nuxtjs/color-mode"
     ]
   },
   "exclude": [

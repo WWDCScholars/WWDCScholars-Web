@@ -3,7 +3,7 @@
   nav.navigation-large
     nuxt-link(to="/", :class="scholarsLinkActive").nuxt-link-root.color-purple: span Scholars
     //- nuxt-link(to="/activity").color-orange: span Activity
-    //- nuxt-link(to="/store").color-blue1: span Store
+    //- nuxt-link(to="/store").color-blue: span Store
     nuxt-link(to="/about").color-green: span About
     profile-button
 </template>

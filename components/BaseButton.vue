@@ -50,8 +50,8 @@ export default class BaseButton extends Vue {
     border: 1px solid $form-border-color
     border-radius: $border-radius
     font-size: 1em
-    color: $sch-gray
-    background-color: $white
+    color: $sch-accent
+    background-color: $background-color-2
     text-align: center
     text-transform: none
     text-decoration: none
@@ -61,7 +61,7 @@ export default class BaseButton extends Vue {
       min-width: 100px
 
     &:hover
-      background-color: darken($background-gray, 6%)
+      background-color: lightenColor('background-gray', -6%)
 
   &.btn-round > .button, a
     padding: 10px 15px
@@ -69,16 +69,16 @@ export default class BaseButton extends Vue {
     border-radius: 32px
 
     &:hover
-      background-color: $background-gray
-      color: $white
+      background-color: $background-color
+      color: $background-color-2
 
   .btn-confirm
     position: absolute
     max-width: 360px
     bottom: calc(100% + 4px)
     padding: 8px
-    background-color: $white
-    border: 1px solid $sch-gray3
+    background-color: $background-color-2
+    border: 1px solid $sch-accent3
     border-radius: $border-radius
     opacity: 1
     transition: opacity 100ms linear
@@ -104,8 +104,8 @@ export default class BaseButton extends Vue {
         min-width: auto
 
         &.btn-cancel
-          background-color: $sch-gray0
-          border-color: lighten($sch-gray0, 5%)
+          background-color: $sch-accent0
+          border-color: lightenColor('sch-accent0', 5%)
 
     .triangle
       position: absolute
@@ -121,7 +121,7 @@ export default class BaseButton extends Vue {
         display: block
         width: 10px
         height: 12px
-        background-color: $white
+        background-color: $background-color-2
         transform: rotate(45deg)
         top: -6px
         left: 5px
@@ -134,23 +134,23 @@ export default class BaseButton extends Vue {
 
   .btn
     button, a
-      background-color: $bg
-      border-color: $bg
-      color: $fg
+      background-color: getColor($bg)
+      border-color: getColor($bg)
+      color: getColor($fg)
 
       &:hover
-        background-color: darken($bg, 10%)
-        border-color: darken($bg, 10%)
+        background-color: lightenColor($bg, -10%)
+        border-color: lightenColor($bg, -10%)
 
       &:disabled
-        background-color: $sch-gray2
-        border-color: $sch-gray1
+        background-color: $sch-accent1
+        border-color: $sch-accent0
 
     &.btn-round > button, a
-      background-color: $fg
-      color: $bg
+      background-color: getColor($fg)
+      color: getColor($bg)
 
       &:hover
-        background-color: $bg
-        color: $fg
+        background-color: getColor($bg)
+        color: getColor($fg)
 </style>
